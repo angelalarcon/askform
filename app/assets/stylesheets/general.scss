@@ -1,0 +1,126 @@
+$header_height: 50px;
+$sections_per_view: 3;
+$sections_height: calc((100vh - #{$header_height})/#{$sections_per_view});
+$full_height: 100vh;
+
+@font-face {
+	font-family: 'Quicksand';
+	src: font-url('quicksand.otf');
+}
+
+body,
+html {
+	font-family: 'Quicksand';
+	height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	margin-top: 0;
+}
+
+a:focus,
+input:focus,
+button:focus {
+	outline: 0 !important;
+}
+
+a,
+input,
+button {
+	transition: all 0.3s;
+}
+
+a:hover,
+a:focus {
+	text-decoration: none;
+}
+
+body {
+	padding-top: $header_height;
+	background-color: rgba(0,0,0,0.2);
+}
+
+input[type="checkbox"] {
+	border: 2px solid rgba(0,0,0,0.3);
+	background-color: #fff;
+	border-radius: 0;
+	margin: 0 2px 0 0;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	width: 11px;
+	height: 11px;
+	box-sizing: content-box;
+	transition: all 0.3s;
+	&:checked {
+		border: 2px solid rgba(255,255,255,0.5);
+		background-color: rgba(0,0,0,0.5);
+	}
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $header_height;
+	padding: 15px 0;
+	background-color: #fff;
+	z-index: 999;
+	& .navbar-nav {
+		width: 100%;
+		& .default-step {
+			display: none;
+		}
+		& li {
+			&.active {
+				& a {
+					& .step {
+						background-color: rgba(0,0,0,0.1);
+					}
+				}
+			}
+			& a {
+				padding: 0 !important;
+				&:focus,
+				&:hover {
+					background-color: transparent;
+					& .step {
+						background-color: rgba(0,0,0,0.1);
+					}
+				}
+				& .step {
+					width: 20px;
+					height: 20px;
+					border: 2px solid rgba(0,0,0,0.12);
+					border-radius: 50%;
+					display: inline-block;
+				}
+			}
+		}
+	}
+}
+
+section {
+	min-height: $sections_height;
+	opacity: 0.5;
+	transition: all 0.3s;
+	&.active {
+		opacity: 1;
+		background: -webkit-gradient(radial, center center, 0, center center, 100, from(#fff), to(transparent));
+		background: -moz-radial-gradient(circle, #fff, transparent);
+		background: -ms-radial-gradient(circle, #fff, transparent);
+	}
+	& h1 {
+		line-height: $sections_height;
+	}
+	&.full {
+		height: $full_height;
+		& h1 {
+			line-height: $full_height;
+		}
+	}
+}
