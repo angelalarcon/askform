@@ -107,12 +107,11 @@ header {
 section {
 	min-height: $sections_height;
 	opacity: 0.5;
-	transition: all 0.3s;
+	transition: all 0.5s, border 1s;
+	border: 2px solid transparent;
 	&.active {
 		opacity: 1;
-		background: -webkit-gradient(radial, center center, 0, center center, 100, from(#fff), to(transparent));
-		background: -moz-radial-gradient(circle, #fff, transparent);
-		background: -ms-radial-gradient(circle, #fff, transparent);
+		border: 2px solid rgba(0,0,0,0.2);
 	}
 	& h1 {
 		line-height: $sections_height;
